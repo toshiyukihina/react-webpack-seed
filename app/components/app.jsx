@@ -3,16 +3,27 @@ import { Button, ButtonToolbar } from 'react-bootstrap';
 
 class App extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    alert("clicked!");
+  }
+
   render() {
+    const buttons = () => {
+      return ["primary", "success", "info", "warning", "danger"].map((style) => {
+        return (<Button key={style} bsStyle={style} onClick={this.handleClick}>{style}</Button>);
+      });
+    };
+
     return (
       <div>
         <ButtonToolbar>
-          <Button>Defaulr</Button>
-          <Button bsStyle="primary">Primary</Button>
-          <Button bsStyle="success">Success</Button>
-          <Button bsStyle="info">Info</Button>
-          <Button bsStyle="warning">Warning</Button>
-          <Button bsStyle="danger">Danger</Button>
+          {buttons()}
         </ButtonToolbar>
       </div>
     );
