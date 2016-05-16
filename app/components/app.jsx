@@ -20,8 +20,8 @@ class App extends React.Component {
       return ["default", "primary", "success", "info", "warning", "danger"].map((style) => {
         return (
           <Button key={style} bsStyle={style} onClick={this.handleClick}>
-            <Glyphicon glyph={icons[_.random(0, 4)]} />{' '}
-            {_.capitalize(style)}
+            <Glyphicon glyph={icons[_.random(0, 4)]} />
+            {` ${_.capitalize(style)}`}
           </Button>
         );
       });
