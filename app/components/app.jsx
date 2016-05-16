@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ButtonToolbar } from 'react-bootstrap';
+import { Button, ButtonToolbar, Glyphicon } from 'react-bootstrap';
 import _ from 'lodash'
 
 class App extends React.Component {
@@ -16,8 +16,14 @@ class App extends React.Component {
 
   render() {
     const buttons = () => {
+      const icons = ['apple', 'yen', 'ruble', 'grain', 'heart'];
       return ["default", "primary", "success", "info", "warning", "danger"].map((style) => {
-        return (<Button key={style} bsStyle={style} onClick={this.handleClick}>{_.capitalize(style)}</Button>);
+        return (
+          <Button key={style} bsStyle={style} onClick={this.handleClick}>
+            <Glyphicon glyph={icons[_.random(0, 4)]} />{' '}
+            {_.capitalize(style)}
+          </Button>
+        );
       });
     };
 
