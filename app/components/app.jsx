@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, ButtonToolbar } from 'react-bootstrap';
+import _ from 'lodash'
 
 class App extends React.Component {
 
@@ -15,8 +16,8 @@ class App extends React.Component {
 
   render() {
     const buttons = () => {
-      return ["primary", "success", "info", "warning", "danger"].map((style) => {
-        return (<Button key={style} bsStyle={style} onClick={this.handleClick}>{style}</Button>);
+      return ["default", "primary", "success", "info", "warning", "danger"].map((style) => {
+        return (<Button key={style} bsStyle={style} onClick={this.handleClick}>{_.capitalize(style)}</Button>);
       });
     };
 
